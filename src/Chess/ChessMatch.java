@@ -25,6 +25,13 @@ public class ChessMatch {
 		}
 		return mat;
 	}
+
+	// Ferramenta usada para auxiliar a impressão no tabuleiro das posições possíveis;
+	public boolean[][] possibleMoves(ChessPosition sourcePosition) {
+		Position position = sourcePosition.toPosition();
+		validateSourcePosition(position);
+		return board.piece(position).possibleMoves();
+	}
 	
 	public ChessPiece performChessMove(ChessPosition sourcePosition, ChessPosition targetPosition) {
 		Position source = sourcePosition.toPosition();
